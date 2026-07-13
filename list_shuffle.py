@@ -8,12 +8,12 @@ followed by the second element in L1, the second element in
 L2, and so on."""
 
 def card_shuffle(L):
-    n = len(L) 
+    n =  len(L) 
 
     L1 = L[:n]
     L2 = L[n:]
 
-    shuffled = []
+    shuffled= []
 
     for i in range(n):
         shuffled.append(L1[i])
