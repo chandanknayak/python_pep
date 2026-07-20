@@ -13,7 +13,7 @@ INSERT INTO Users VALUES
 (5, 'Neha Gupta', 'Delhi', 'Regular'),
 (6, 'Arjun Patel', 'Mumbai', 'Premium'),
 (7, 'Sneha Roy', 'Kolkata', 'Regular'),
-(8, 'Vikram Singh', 'Delhi', 'Premium');
+(8, 'Vikram Singh', 'Delhi', 'Premium'),
 (9, 'Karan Das', 'Delhi', 'Regular');
 CREATE TABLE Restaurants(
   RestaurantID INT PRIMARY KEY,
@@ -186,17 +186,16 @@ HAVING SUM(o.BillAmount) > 5000;
 -- with the total count of cancelled orders each restaurant faced.
 -- ● Tables to Use: Restaurants, Orders, Deliveries
 
-SELECT r.RestaurantName,
-       SUM(o.BillAmount) AS TotalRevenue
+SELECT
+    r.RestaurantName,
+    COUNT(d.DeliveryID) AS CancelledOrders
 FROM Restaurants r
 JOIN Orders o
 ON r.RestaurantID = o.RestaurantID
-JOIN Users u
-ON o.UserID = u.UserID
-WHERE u.City = 'Delhi'
-GROUP BY r.RestaurantName
-HAVING SUM(o.BillAmount) > 5000;
-
+JOIN Deliveries d
+ON o.OrderID = d.OrderID
+WHERE d.DeliveryStatus = 'Cancelled'
+GROUP BY r.RestaurantName;
 -- Question 8
 -- ● Problem Statement: Write a query to find the UserName and Email/City profiles
 -- of users who have spent more money on a single order than the average order
