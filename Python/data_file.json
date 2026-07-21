@@ -1,0 +1,22 @@
+[
+    {
+        "name": "ACME",
+        "shares": 100,
+        "price": 542.23
+    },
+    {
+        "name": "reliance",
+        "shares": 100,
+        "price": 942.23
+    },
+    {
+        "name": "coco-cola",
+        "shares": 100,
+        "price": 442.23
+    },
+    {
+        "name": "tata_steel",
+        "shares": 100,
+        "price": 342.23
+    }
+]
